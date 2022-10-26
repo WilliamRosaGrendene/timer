@@ -36,7 +36,6 @@ const newCycleFormValidationSchema = zod.object({
 
 type NewCycleFormData = zod.infer<typeof newCycleFormValidationSchema> //sempre que for referenciar uma variável JS no TS tem que usar o typeof
 
-
 export function Home() {
     
     const { activeCycle, createNewCycle, InterruptCurrentCycle } = useContext(CyclesContext)
@@ -44,7 +43,7 @@ export function Home() {
     const newCycleForm = useForm<NewCycleFormData>({  //constante do validador zod
         resolver: zodResolver(newCycleFormValidationSchema),
         defaultValues: {
-            tasks: '',
+            task: '',
             minutesAmount: 0,
         },
     })  //register adiciona um input no formulário

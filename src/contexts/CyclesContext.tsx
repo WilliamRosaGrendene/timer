@@ -1,6 +1,6 @@
 import { createContext, ReactNode, useEffect, useReducer, useState } from "react";
 import { Cycle, cyclesReducer } from "../Reducers/Cycles/reducer"
-import { ActionType, addNewCycleAction, interruptDateAction, markCurrendCycleAction } from "../Reducers/Cycles/action"
+import { addNewCycleAction, interruptDateAction, markCurrendCycleAction } from "../Reducers/Cycles/action"
 import { differenceInSeconds } from "date-fns";
 
 
@@ -9,7 +9,7 @@ interface CreateCycleData {     // interface para criar um novo ciclo
     minutesAmount: number;
 }
 
-interface CyclesContextType {
+interface CyclesContextType {                
     cycles: Cycle[];
     activeCycle: Cycle | undefined;
     activeCycleId: string | null;
@@ -40,7 +40,7 @@ export function CyclesContextProvider({ children }: CyclesProps) {
                 return JSON.parse(storageStateAsJSON) //se ele enconstrar um localstorage com o mesmo nome retorna oque estava antes
             }
         })
-        
+
     const { cycles, activeCycleId } = CyclesState  //entrando na tipagem CyclesState e puxando os ciclos e id
     const activeCycle = cycles.find((cycle) => cycle.id === activeCycleId); //percorre os ciclos e encontra um ciclo que o id seja igual ao id do ciclo ativo
 
@@ -87,7 +87,7 @@ export function CyclesContextProvider({ children }: CyclesProps) {
     }
 
     return (
-        <CyclesContext.Provider
+        <CyclesContext.Provider  //contexto que vai por fora do children aplicando todas as propriedades
             value={{
                 cycles,
                 activeCycle,
@@ -98,7 +98,7 @@ export function CyclesContextProvider({ children }: CyclesProps) {
                 createNewCycle,
                 InterruptCurrentCycle,
             }}>
-            {children}
+            {children}          
         </CyclesContext.Provider>
     )
 }
