@@ -1,10 +1,10 @@
-import { ThemeProvider } from "styled-components";
-import { Rounter } from "./Rounter";
-import { defaultTheme } from "./styles/themes/default";
+import { ThemeProvider } from "styled-components"
+import { Rounter } from "./Rounter"
+import { defaultTheme } from "./styles/themes/default"
 import { BrowserRouter } from 'react-router-dom'
 
-import { GlobalStyle } from "./styles/themes/global";
-import { CyclesContextProvider } from "./contexts/CyclesContext";
+import { GlobalStyle } from "./styles/themes/global"
+import { CyclesContextProvider } from "./contexts/CyclesContext"
 
 export function App() {
 
